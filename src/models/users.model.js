@@ -8,25 +8,25 @@ module.exports = function (app) {
     username: {
       type: Sequelize.STRING,
       unique: true,
-      allowNull: false,
+      allowNull: false
     }, 
     email: {
       type: Sequelize.STRING,
       unique: true,
-      allowNull: true,
+      allowNull: false,
     },
     password: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: false
     },
     avatar: {
       type: Sequelize.STRING,
-      allowNull: true,
+      allowNull: true
     },
-    latLong:  {
+    latLong: {
       type: Sequelize.STRING,
-      allowNull: true,
-    }, 
+      allowNull: true
+    }
   }, {
     hooks: {
       beforeCount(options) {
