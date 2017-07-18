@@ -19,6 +19,10 @@ module.exports = function (app) {
 
   packs.associate = function (models) { // eslint-disable-line no-unused-vars
     // Define associations here
+    packs.hasMany(models.groups);
+    packs.hasMany(models.itineraries);
+    packs.hasMany(models.messages);
+    packs.hasMany(models.photos);
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 

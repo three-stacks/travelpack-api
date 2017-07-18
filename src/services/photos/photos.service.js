@@ -17,6 +17,7 @@ module.exports = function () {
 
   // Initialize our service with any options it requires
   app.use('/photos', createService(options));
+  // app.use('/photos/:id', createService(forId));
 
   // Get our initialized service so that we can register hooks and filters
   const service = app.service('photos');

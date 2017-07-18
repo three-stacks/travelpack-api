@@ -37,9 +37,6 @@ module.exports = function (app) {
       type: Sequelize.INTEGER,
       allowNull: true
     },
-    // pack_id: {
-    //   type: Sequelize.INTEGER,
-    // }
   }, {
     hooks: {
       beforeCount(options) {

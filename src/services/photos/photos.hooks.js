@@ -1,10 +1,12 @@
-
+// const { populate } = require('feathers-hooks-common');
 
 module.exports = {
   before: {
     all: [],
     find: [],
-    get: [],
+    get: [
+      // hook => hooks.params.provider 
+    ],
     create: [],
     update: [],
     patch: [],
@@ -12,8 +14,22 @@ module.exports = {
   },
 
   after: {
-    all: [],
-    find: [],
+    all: [
+      // populate({
+      //   schema: {
+      //     include: [{
+      //       service: 'users',
+      //       // nameAs: 'user',
+      //       // parentField: 'userId',
+      //       // childField: '_id'
+      //     }]
+      //   }
+      // })
+    ],
+    // find: [],
+    // get: function(params){
+
+    // },
     get: [],
     create: [],
     update: [],
