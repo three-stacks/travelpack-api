@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const packs = sequelizeClient.define('packs', {
-    name: {
+    text: {
       type: Sequelize.STRING,
       allowNull: true
     }
