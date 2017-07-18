@@ -36,7 +36,10 @@ module.exports = function (app) {
     unlike: {
       type: Sequelize.INTEGER,
       allowNull: true
-    }
+    },
+    // pack_id: {
+    //   type: Sequelize.INTEGER,
+    // }
   }, {
     hooks: {
       beforeCount(options) {
@@ -47,6 +50,7 @@ module.exports = function (app) {
 
   itineraries.associate = function (models) { // eslint-disable-line no-unused-vars
     // Define associations here
+    itineraries.belongsTo(models.packs);
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 

@@ -4,10 +4,10 @@ const Sequelize = require('sequelize');
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const packs = sequelizeClient.define('packs', {
-    name: {
+  const photos = sequelizeClient.define('photos', {
+    url: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: false
     }
   }, {
     hooks: {
@@ -17,10 +17,12 @@ module.exports = function (app) {
     }
   });
 
-  packs.associate = function (models) { // eslint-disable-line no-unused-vars
+  photos.associate = function (models) { // eslint-disable-line no-unused-vars
     // Define associations here
+    photos.belongsTo(models.users);
+    photos.belongsTo(models.packs);
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return packs;
+  return photos;
 };

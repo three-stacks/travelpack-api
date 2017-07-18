@@ -4,11 +4,11 @@ const Sequelize = require('sequelize');
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const packs = sequelizeClient.define('packs', {
-    name: {
-      type: Sequelize.STRING,
-      allowNull: true
-    }
+  const groups = sequelizeClient.define('groups', {
+    // text: {
+    //   type: Sequelize.STRING,
+    //   allowNull: false
+    // }
   }, {
     hooks: {
       beforeCount(options) {
@@ -17,10 +17,12 @@ module.exports = function (app) {
     }
   });
 
-  packs.associate = function (models) { // eslint-disable-line no-unused-vars
+  groups.associate = function (models) { // eslint-disable-line no-unused-vars
     // Define associations here
+    groups.belongsTo(models.packs);
+    groups.belongsTo(models.users);
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return packs;
+  return groups;
 };
