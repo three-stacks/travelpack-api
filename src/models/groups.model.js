@@ -5,16 +5,12 @@ const Sequelize = require('sequelize');
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const groups = sequelizeClient.define('groups', {
-    // text: {
-    //   type: Sequelize.STRING,
-    //   allowNull: false
-    // }
   }, {
     hooks: {
       beforeCount(options) {
         options.raw = true;
-      }
-    }
+      },
+    },
   });
 
   groups.associate = function (models) { // eslint-disable-line no-unused-vars

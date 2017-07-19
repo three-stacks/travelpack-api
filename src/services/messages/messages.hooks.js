@@ -1,4 +1,4 @@
-// const { authenticate } = require('feathers-authentication').hooks;
+const { populate } = require('feathers-hooks-common');
 
 module.exports = {
   before: {
@@ -8,7 +8,7 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   after: {
@@ -18,7 +18,7 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   error: {
@@ -28,6 +28,6 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
-  }
+    remove: [],
+  },
 };

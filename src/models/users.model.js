@@ -8,7 +8,7 @@ module.exports = function (app) {
     username: {
       type: Sequelize.STRING,
       unique: true,
-      allowNull: false
+      allowNull: false,
     }, 
     email: {
       type: Sequelize.STRING,
@@ -17,26 +17,30 @@ module.exports = function (app) {
     },
     password: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     },
     avatar: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: true,
     },
     latLong: {
       type: Sequelize.STRING,
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     hooks: {
       beforeCount(options) {
         options.raw = true;
-      }
-    }
+      },
+    },
   });
 
   users.associate = function (models) { // eslint-disable-line no-unused-vars
     // Define associations here
+    users.hasMany(models.groups);
+    users.hasMany(models.itineraries);
+    users.hasMany(models.messages);
+    users.hasMany(models.photos);
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 

@@ -7,14 +7,14 @@ module.exports = function (app) {
   const photos = sequelizeClient.define('photos', {
     url: {
       type: Sequelize.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   }, {
     hooks: {
       beforeCount(options) {
         options.raw = true;
-      }
-    }
+      },
+    },
   });
 
   photos.associate = function (models) { // eslint-disable-line no-unused-vars

@@ -1,10 +1,9 @@
-require('dotenv').config();
 const Sequelize = require('sequelize');
 
 module.exports = function () {
   const app = this;
   const connectionString = app.get('postgres');
-  const sequelize = new Sequelize(process.env.POSTGRES_URL, {
+  const sequelize = new Sequelize(connectionString, {
     dialect: 'postgres',
     logging: false,
     define: {

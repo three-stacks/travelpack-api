@@ -12,11 +12,13 @@ module.exports = function () {
   const options = {
     name: 'photos',
     Model,
-    paginate
+    paginate,
   };
 
+
   // Initialize our service with any options it requires
-  app.use('/photos', createService(options));
+  app.use('/photos',  createService(options));
+
 
   // Get our initialized service so that we can register hooks and filters
   const service = app.service('photos');
