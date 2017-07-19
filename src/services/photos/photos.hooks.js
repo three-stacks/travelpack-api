@@ -1,12 +1,9 @@
-// const { populate } = require('feathers-hooks-common');
-// const { limit } = require('feathers-hooks-)
-const postmessage = require('../../hooks/postmessage.js');
+// const postmessage = require('../../hooks/postmessage.js');
 
 module.exports = {
   before: {
-    all: [
-    ],
-    find: [ postmessage() ],
+    all: [],
+    find: [],
     get: [],
     create: [],
     update: [],
@@ -16,7 +13,7 @@ module.exports = {
 
   after: {
     all: [],
-    find: [ postmessage() ],
+    find: [],
     get: [],
     create: [],
     update: [],
@@ -26,13 +23,11 @@ module.exports = {
 
   error: {
     all: [],
-    find: [
-      postmessage()
-    ],
+    find: [],
     get: [],
     create: [],
     update: [],
     patch: [],
     remove: [],
   },
-};
+};    

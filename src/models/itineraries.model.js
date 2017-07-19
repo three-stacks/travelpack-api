@@ -41,8 +41,8 @@ module.exports = function (app) {
     hooks: {
       beforeCount(options) {
         options.raw = true;
-      }
-    }
+      },
+    },
   });
 
   itineraries.associate = function (models) { // eslint-disable-line no-unused-vars

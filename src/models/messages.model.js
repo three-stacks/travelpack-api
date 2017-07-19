@@ -7,14 +7,14 @@ module.exports = function (app) {
   const messages = sequelizeClient.define('messages', {
     text: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     }, 
   }, {
     hooks: {
       beforeCount(options) {
         options.raw = true;
-      }
-    }
+      },
+    },
   });
 
   messages.associate = function (models) { // eslint-disable-line no-unused-vars
