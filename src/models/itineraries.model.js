@@ -7,35 +7,35 @@ module.exports = function (app) {
   const itineraries = sequelizeClient.define('itineraries', {
     name: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: true,
     },
     activity: {
-      type: Sequelize.STRING, 
-      allowNull: true
+      type: Sequelize.STRING,
+      allowNull: true,
     },
     url: {
       type: Sequelize.STRING,
-      allowNull: true
-    }, 
+      allowNull: true,
+    },
     photo: {
       type: Sequelize.STRING,
-      allowNull: true
-    }, 
+      allowNull: true,
+    },
     date: {
       type: Sequelize.STRING,
-      allowNull: true
-    }, 
+      allowNull: true,
+    },
     time: {
       type: Sequelize.STRING,
-      allowNull: true
-    }, 
+      allowNull: true,
+    },
     like: {
       type: Sequelize.INTEGER,
-      allowNull: true
-    }, 
+      allowNull: true,
+    },
     unlike: {
       type: Sequelize.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
   }, {
     hooks: {

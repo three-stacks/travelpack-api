@@ -1,4 +1,6 @@
 // const { authenticate } = require('feathers-authentication').hooks;
+// const postmessage = require('../../hooks/postmessage.js');
+const { populate } = require('feathers-hooks-common');
 
 module.exports = {
   before: {
@@ -8,11 +10,22 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   after: {
-    all: [],
+    all: [ 
+      // populate({
+      //   schema: {
+          // include: [{
+          //   service: 'users',
+          //   nameAs: 'user',
+          //   parentField: 'userId',
+          //   childField: '_id',
+          // }],
+      //   },
+      // }),
+    ],
     find: [],
     get: [],
     create: [],

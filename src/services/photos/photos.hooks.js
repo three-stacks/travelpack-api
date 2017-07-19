@@ -1,49 +1,38 @@
 // const { populate } = require('feathers-hooks-common');
+// const { limit } = require('feathers-hooks-)
+const postmessage = require('../../hooks/postmessage.js');
 
 module.exports = {
   before: {
-    all: [],
-    find: [],
-    get: [
-      // hook => hooks.params.provider 
-    ],
-    create: [],
-    update: [],
-    patch: [],
-    remove: []
-  },
-
-  after: {
     all: [
-      // populate({
-      //   schema: {
-      //     include: [{
-      //       service: 'users',
-      //       // nameAs: 'user',
-      //       // parentField: 'userId',
-      //       // childField: '_id'
-      //     }]
-      //   }
-      // })
     ],
-    // find: [],
-    // get: function(params){
-
-    // },
+    find: [ postmessage() ],
     get: [],
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
+  },
+
+  after: {
+    all: [],
+    find: [ postmessage() ],
+    get: [],
+    create: [],
+    update: [],
+    patch: [],
+    remove: [],
   },
 
   error: {
     all: [],
-    find: [],
+    find: [
+      postmessage()
+    ],
     get: [],
     create: [],
     update: [],
     patch: [],
-    remove: []
-  }
+    remove: [],
+  },
 };

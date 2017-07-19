@@ -13,8 +13,8 @@ module.exports = function (app) {
     hooks: {
       beforeCount(options) {
         options.raw = true;
-      }
-    }
+      },
+    },
   });
 
   groups.associate = function (models) { // eslint-disable-line no-unused-vars

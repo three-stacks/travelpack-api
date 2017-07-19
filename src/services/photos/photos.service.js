@@ -12,15 +12,30 @@ module.exports = function () {
   const options = {
     name: 'photos',
     Model,
-    paginate
+    paginate,
   };
 
+
   // Initialize our service with any options it requires
-  app.use('/photos', createService(options));
-  // app.use('/photos/:id', createService(forId));
+  app.use('/photos',  createService(options));
+
+  // app.get('/photos', function(req, sed){
+  //   .find({ query: url:  "somethingr" })
+  // })
+
+  // app.use('/photos', {
+  //   create(data, params) {
+  //     console.log(data, params, 'data')
+  //     return Promise.resolve(data);
+  //   }
+  // });
+
 
   // Get our initialized service so that we can register hooks and filters
   const service = app.service('photos');
+  // service.create({
+  //   name,
+  // });
 
   service.hooks(hooks);
 
