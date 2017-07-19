@@ -24,29 +24,18 @@
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
-<<<<<<< HEAD
     "start": "nodemon src/",
-=======
-    "start": "node src/",
->>>>>>> 020d42190c4f2d498bc4c935111f00949832a7f0
     "mocha": "mocha test/ --recursive"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
     "compression": "^1.7.0",
     "cors": "^2.8.3",
-<<<<<<< HEAD
-=======
-    "dotenv": "^4.0.0",
->>>>>>> 020d42190c4f2d498bc4c935111f00949832a7f0
     "feathers": "^2.1.4",
     "feathers-authentication": "^1.2.7",
     "feathers-authentication-hooks": "^0.1.4",
     "feathers-authentication-jwt": "^0.3.2",
-<<<<<<< HEAD
     "feathers-authentication-local": "^0.4.3",
-=======
->>>>>>> 020d42190c4f2d498bc4c935111f00949832a7f0
     "feathers-configuration": "^0.4.1",
     "feathers-errors": "^2.8.2",
     "feathers-hooks": "^2.0.2",
@@ -63,11 +52,8 @@
   },
   "devDependencies": {
     "eslint": "^4.1.1",
-<<<<<<< HEAD
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.7.0",
-=======
->>>>>>> 020d42190c4f2d498bc4c935111f00949832a7f0
     "mocha": "^3.4.2",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
