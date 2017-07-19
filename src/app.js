@@ -22,19 +22,21 @@ const sequelize = require('./sequelize');
 
 const authentication = require('./authentication');
 
-const app = feathers();
+const app = feathers()
 
-// Load app configuration
 app.configure(configuration());
-// Enable CORS, security, compression, favicon and body parsing
+
+var stuff = app.get('postgres');
+
 app.use(cors());
 app.use(helmet());
 app.use(compress());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
+const publicPath = app.get('public')
+app.use(favicon(path.join(publicPath, 'favicon.ico')));
 // Host the public folder
-app.use('/', feathers.static(app.get('public')));
+app.use('/', feathers.static(publicPath));
 
 // Set up Plugins and providers
 app.configure(hooks());
