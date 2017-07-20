@@ -7,7 +7,7 @@ module.exports = function (app) {
   const packs = sequelizeClient.define('packs', {
     name: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: true,
     },
     url: {
       type: Sequelize.STRING,
