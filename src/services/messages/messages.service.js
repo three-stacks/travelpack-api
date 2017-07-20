@@ -15,15 +15,6 @@ module.exports = function () {
     paginate,
   };
 
-  // app.configure(socketio((io) => {
-  //   io.on('connection', function(socket) {
-  //     console.log('user conneted'); 
-  //     socket.on('new message', function (msg) {
-  //       console.log(msg);
-  //       socket.emit('chat message', msg);
-  //     });
-  //   });
-  // }));
 
   // Initialize our service with any options it requires
   app.use('/messages', createService(options));
