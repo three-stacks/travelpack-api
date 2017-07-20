@@ -22,18 +22,16 @@ const sequelize = require('./sequelize');
 
 const authentication = require('./authentication');
 
-const app = feathers()
+const app = feathers();
 
 app.configure(configuration());
-
-var stuff = app.get('postgres');
 
 app.use(cors());
 app.use(helmet());
 app.use(compress());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const publicPath = app.get('public')
+const publicPath = app.get('public');
 app.use(favicon(path.join(publicPath, 'favicon.ico')));
 // Host the public folder
 app.use('/', feathers.static(publicPath));
@@ -42,7 +40,23 @@ app.use('/', feathers.static(publicPath));
 app.configure(hooks());
 app.configure(sequelize);
 app.configure(rest());
+
 app.configure(socketio());
+const messages = client.service('messages');
+messages.on('created', message =>
+  alert(`New message from ${message.name}: ${message.text}`)
+);
+
+// app.configure(socketio((io) => {
+//   io.on('connection', function(socket) {
+//     console.log('user conneted'); 
+//     socket.on('new message', function (msg) {
+//       console.log(msg);
+//       socket.emit('chat message', msg);
+//     });
+//   });
+// }));
+
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);
