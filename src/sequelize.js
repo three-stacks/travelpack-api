@@ -7,7 +7,7 @@ module.exports = function () {
     logging: false,
     define: {
       freezeTableName: true,
-    }
+    },
   });
   const oldSetup = app.setup;
 

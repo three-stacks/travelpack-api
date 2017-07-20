@@ -30,6 +30,6 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
-  }
+    remove: [],
+  },
 };

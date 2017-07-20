@@ -44,20 +44,13 @@ app.configure(rest());
 
 app.configure(socketio((io) => {
   io.on('connection', function(socket) {
-    console.log('user connected'); 
     socket.on('new message', function (msg) {
       app.service('messages').create({
         text: msg.message,
       });
-      console.log(msg, 'in emit');
-
       socket.emit('chat message', msg);
     });
   });
-  // console.log(message, 'outside of configure');
-  // app.service('messages').create({
-  //   // text: msg.message,
-  // });
 }));
 
 
