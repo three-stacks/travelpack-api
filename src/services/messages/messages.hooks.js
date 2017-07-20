@@ -1,8 +1,12 @@
-const { populate } = require('feathers-hooks-common');
+// const { authenticate } = require('feathers-authentication').hooks;
+// const { populate } = require('feathers-hooks-common');
+// const postmessage = require('../../')
 
 module.exports = {
   before: {
-    all: [],
+    all: [
+      // authenticate('jwt') 
+    ],
     find: [],
     get: [],
     create: [],
@@ -31,3 +35,15 @@ module.exports = {
     remove: [],
   },
 };
+
+
+  // populate({
+  //       schema: {
+  //         include: [{
+  //           service: 'users',
+  //           nameAs: 'user',
+  //           parentField: 'userId',
+  //           childField: '_id',
+  //         }],
+  //       },
+  //     }),

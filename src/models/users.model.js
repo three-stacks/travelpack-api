@@ -8,7 +8,7 @@ module.exports = function (app) {
     username: {
       type: Sequelize.STRING,
       unique: true,
-      allowNull: false,
+      allowNull: true,
     }, 
     email: {
       type: Sequelize.STRING,
@@ -23,8 +23,12 @@ module.exports = function (app) {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    latLong: {
-      type: Sequelize.STRING,
+    lat: {
+      type: Sequelize.INTEGER,
+      allowNull: true,
+    },
+    long: {
+      type: Sequelize.INTEGER,
       allowNull: true,
     },
   }, {
