@@ -1,10 +1,11 @@
-const { authenticate } = require('feathers-authentication').hooks;
-const { populate } = require('feathers-hooks-common');
+// const { authenticate } = require('feathers-authentication').hooks;
+// const { populate } = require('feathers-hooks-common');
+// const postmessage = require('../../')
 
 module.exports = {
   before: {
     all: [
-      authenticate('jwt') 
+      // authenticate('jwt') 
     ],
     find: [],
     get: [],
@@ -15,18 +16,7 @@ module.exports = {
   },
 
   after: {
-    all: [
-      populate({
-        schema: {
-          include: [{
-            service: 'users',
-            nameAs: 'user',
-            parentField: 'userId',
-            childField: '_id',
-          }],
-        },
-      }),
-    ],
+    all: [],
     find: [],
     get: [],
     create: [],
@@ -45,3 +35,15 @@ module.exports = {
     remove: [],
   },
 };
+
+
+  // populate({
+  //       schema: {
+  //         include: [{
+  //           service: 'users',
+  //           nameAs: 'user',
+  //           parentField: 'userId',
+  //           childField: '_id',
+  //         }],
+  //       },
+  //     }),

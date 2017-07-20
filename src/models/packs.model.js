@@ -8,7 +8,11 @@ module.exports = function (app) {
     name: {
       type: Sequelize.STRING,
       allowNull: true
-    }
+    },
+    url: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
   }, {
     hooks: {
       beforeCount(options) {
