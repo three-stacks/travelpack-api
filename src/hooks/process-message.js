@@ -4,6 +4,7 @@
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function processMessage (hook) {
     console.log(hook.params.user);
+    console.log(hook);
     // Hooks can either return nothing or a promise
     // that resolves with the `hook` object for asynchronous operations
     return Promise.resolve(hook);
