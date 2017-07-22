@@ -21,9 +21,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [ 
-      addToGroups(),
-    ],
+    create: [addToGroups()],
     update: [],
     patch: [],
     remove: [],
