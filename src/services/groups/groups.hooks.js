@@ -1,6 +1,6 @@
 // const { authenticate } = require('feathers-authentication').hooks;
 // const { populate } = require('feathers-hooks-common');
-// const hooks = require('feathers-authentication-hooks');
+const hooks = require('feathers-authentication-hooks');
 const getUserData = require('../../hooks/getUserData.js');
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
       // hooks.queryWithCurrentUser({ idField: 'id', as: 'sentBy' })
     ],
     get: [],
-    create: [ getUserData() ],
+    create: [getUserData()],
     update: [],
     patch: [],
     remove: [],
