@@ -1,8 +1,8 @@
 const authentication = require('feathers-authentication');
 const jwt = require('feathers-authentication-jwt');
 const local = require('feathers-authentication-local');
-
-// const decode = require('jwt-decode');
+const decode = require('jwt-decode')
+// Retrieve the token from wherever you've stored it.
 
 
 module.exports = function () {
@@ -20,16 +20,7 @@ module.exports = function () {
   app.service('authentication').hooks({
     before: {
       create: [
-        // console.log(hooks.params.payload)
-        // addPayload();
-        authentication.hooks.authenticate(config.strategies)
-        //   hook => {
-        //   // make sure params.payload exists
-        //   hook.params.payload = hook.params.payload || {}
-        //   // merge in a `test` property
-        //   Object.assign(hook.params.payload, {test: 'test'})
-        //   console.log(hooks.params.payload, 'if it is')
-        // },
+        authentication.hooks.authenticate(config.strategies),
       ],
       remove: [
         authentication.hooks.authenticate('jwt'),

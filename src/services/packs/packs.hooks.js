@@ -1,6 +1,6 @@
 // const { authenticate } = require('feathers-authentication').hooks;
-const hooks = require('feathers-authentication-hooks');
-const postmessage = require('../../hooks/process-message.js');
+// const hooks = require('feathers-authentication-hooks');
+const addToGroups = require('../../hooks/addToGroups.js');
 
 module.exports = {
   before: {
@@ -8,7 +8,7 @@ module.exports = {
       // authenticate('jwt') 
     ],
     find: [
-      hooks.queryWithCurrentUser({ idField: 'id', as: 'sentBy' })
+      // hooks.queryWithCurrentUser({ idField: 'id', as: 'sentBy' })
     ],
     get: [],
     create: [],
@@ -21,7 +21,9 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [ 
+      addToGroups(),
+    ],
     update: [],
     patch: [],
     remove: [],

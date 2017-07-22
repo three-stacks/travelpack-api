@@ -3,9 +3,7 @@
 
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function (hook) {
-
-    console.log(hook, 'in hooks');
-
+    console.log(hook.results, 'in change');
     return Promise.resolve(hook);
   };
 };
