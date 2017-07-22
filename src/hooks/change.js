@@ -2,10 +2,8 @@
 // For more information on hooks see: http://docs.feathersjs.com/api/hooks.html
 
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
-  return function processMessage (hook) {
-    console.log(hook.params.user);
-    // Hooks can either return nothing or a promise
-    // that resolves with the `hook` object for asynchronous operations
+  return function (hook) {
+    console.log(hook.results, 'in change');
     return Promise.resolve(hook);
   };
 };

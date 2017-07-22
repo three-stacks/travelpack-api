@@ -1,11 +1,15 @@
 // const { authenticate } = require('feathers-authentication').hooks;
+// const hooks = require('feathers-authentication-hooks');
+const addToGroups = require('../../hooks/addToGroups.js');
 
 module.exports = {
   before: {
     all: [
       // authenticate('jwt') 
     ],
-    find: [],
+    find: [
+      // hooks.queryWithCurrentUser({ idField: 'id', as: 'sentBy' })
+    ],
     get: [],
     create: [],
     update: [],
@@ -17,7 +21,9 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [ 
+      addToGroups(),
+    ],
     update: [],
     patch: [],
     remove: [],
