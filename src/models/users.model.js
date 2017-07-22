@@ -8,12 +8,12 @@ module.exports = function (app) {
     username: {
       type: Sequelize.STRING,
       unique: true,
-      allowNull: true,
-    }, 
+      allowNull: false,
+    },
     email: {
       type: Sequelize.STRING,
       unique: true,
-      allowNull: true,
+      allowNull: false,
     },
     password: {
       type: Sequelize.STRING,

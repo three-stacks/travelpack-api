@@ -1,12 +1,11 @@
-module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
+module.exports = function () {
   return function (hook) {
-    const currUserId = hook.data.userId.__zone_symbol__value;
-    const currPackId = hook.result.id;
-    console.log(`${currUserId} and ${currPackId} have been inserted into the group table`);
-    
+    const userID = hook.data.userId.__zone_symbol__value;
+    const packID = hook.result.id;
+    console.log(`${userID} had been added to the ${packID} pack`)  
     hook.app.service('groups').create({
-      userId: currUserId,
-      packId: currPackId,
+      userId: userID,
+      packId: packID,
     });
     return Promise.resolve(hook);
   };

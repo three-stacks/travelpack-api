@@ -32,9 +32,17 @@ module.exports = {
         commonHooks.discard('password'),
       ),
     ],
-    find: [],
+    find: [
+      // commonHooks.when(
+      //   hook => console.log(hook),
+      // ),
+    ],
     get: [],
-    create: [],
+    create: [
+      commonHooks.when(
+        hook => console.log(hook.app.passport.createJWT),
+      ),
+    ],
     update: [],
     patch: [],
     remove: [],

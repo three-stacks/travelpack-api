@@ -1,6 +1,7 @@
 // const { authenticate } = require('feathers-authentication').hooks;
 // const { populate } = require('feathers-hooks-common');
 const hooks = require('feathers-authentication-hooks');
+const getUserData = require('../../hooks/getUserData.js');
 
 module.exports = {
   before: {
@@ -8,10 +9,10 @@ module.exports = {
       // authenticate('jwt') 
     ],
     find: [
-      hooks.queryWithCurrentUser({ idField: 'id', as: 'sentBy' })
+      // hooks.queryWithCurrentUser({ idField: 'id', as: 'sentBy' })
     ],
     get: [],
-    create: [],
+    create: [getUserData()],
     update: [],
     patch: [],
     remove: [],

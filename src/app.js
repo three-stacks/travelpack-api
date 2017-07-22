@@ -49,6 +49,9 @@ app.configure(socketio((io) => {
         text: msg.message,
       });
       socket.emit('chat message', msg);
+      socket.emit('messages::find', { status: 'read', user: 10 }, (error, data) => {
+        console.log('Found all messages', data);
+      });
     });
   });
 }));
