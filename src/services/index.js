@@ -5,6 +5,8 @@ const itineraries = require('./itineraries/itineraries.service.js');
 const photos = require('./photos/photos.service.js');
 const groups = require('./groups/groups.service.js');
 
+const budgets = require('./budgets/budgets.service.js');
+
 module.exports = function () {
   const app = this; // eslint-disable-line no-unused-vars
   app.configure(messages);
@@ -13,4 +15,5 @@ module.exports = function () {
   app.configure(itineraries);
   app.configure(photos);
   app.configure(groups);
+  app.configure(budgets);
 };
