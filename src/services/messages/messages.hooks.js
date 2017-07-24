@@ -10,14 +10,29 @@ module.exports = {
     ],
     find: [],
     get: [],
-    create: [processMessage()],
+    create: [],
     update: [],
     patch: [],
     remove: [],
   },
 
   after: {
-    all: [],
+    all: [
+      populate({
+        schema: {
+          include: [{
+            service: 'users',
+            nameAd: 'user',
+            parentField: 'userId',
+            childField: 'id',
+            query: {
+              $select: ['username', 'avatar', 'id'],
+              $sort: { createdAt: -1 },
+            },
+          }],
+        },
+      }),
+    ],
     find: [],
     get: [
       // commonHooks.when(
@@ -41,14 +56,3 @@ module.exports = {
   },
 };
 
-
-// populate({
-//       schema: {
-//         include: [{
-//           service: 'users',
-//           nameAs: 'user',
-//           parentField: 'userId',
-//           childField: '_id',
-//         }],
-//       },
-//     }),
