@@ -9,24 +9,20 @@ module.exports = function (app) {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    activity: {
+    img: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    url: {
-      type: Sequelize.STRING,
-      allowNull: true,
-    },
-    photo: {
+    link: {
       type: Sequelize.STRING,
       allowNull: true,
     },
     date: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
       allowNull: true,
     },
     time: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
       allowNull: true,
     },
     like: {
@@ -45,7 +41,7 @@ module.exports = function (app) {
     },
   });
 
-  itineraries.associate = function (models) { // eslint-disable-line no-unused-vars
+  itineraries.associate = function (models) { 
     // Define associations here
     itineraries.belongsTo(models.packs);
     // See http://docs.sequelizejs.com/en/latest/docs/associations/

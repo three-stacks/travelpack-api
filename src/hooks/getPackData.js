@@ -10,7 +10,3 @@ module.exports = function (options = {}) {
     });
   };
 };
-
-
-
-//query group table and create an array of all items that need to be 

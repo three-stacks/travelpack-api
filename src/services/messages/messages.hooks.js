@@ -1,6 +1,7 @@
 // const { authenticate } = require('feathers-authentication').hooks;
 const { populate } = require('feathers-hooks-common');
 const processMessage = require('../../hooks/processMessage.js');
+const commonHooks = require('feathers-hooks-common');
 
 module.exports = {
   before: {
@@ -16,20 +17,13 @@ module.exports = {
   },
 
   after: {
-    all: [
-      populate({
-        schema: {
-          include: [{
-            service: 'users',
-            nameAs: 'user',
-            parentField: 'userId',
-            childField: '_id',
-          }],
-        },
-      }),
-    ],
+    all: [],
     find: [],
-    get: [],
+    get: [
+      // commonHooks.when(
+      //   hook => console.log(hook.app.passport.createJWT),
+      // ),
+    ],
     create: [],
     update: [],
     patch: [],
