@@ -44,18 +44,21 @@ app.configure(rest());
 
 app.configure(socketio((io) => {
   let currRoom = 1;
-  let userId = 1;
   io.on('connection', (socket) => {
     socket.on('room', (room) => {
       console.log(room, 'in room');
       currRoom = room;
-      socket.join(room); 
+      socket.join(room) 
     });
     socket.on('new message', (msg) => {
       io.in(currRoom).emit('chat message', msg);
       console.log(msg, 'in app.js');
       console.log(currRoom, 'in new chat');
-      
+      app.service('messages').create({
+        text: msg.message,
+        userId: msg.userId,
+        packId: currRoom,
+      });
     });
   });
 }));

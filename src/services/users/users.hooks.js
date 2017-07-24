@@ -32,11 +32,7 @@ module.exports = {
         commonHooks.discard('password'),
       ),
     ],
-    find: [
-      // commonHooks.when(
-      //   hook => console.log(hook),
-      // ),
-    ],
+    find: [],
     get: [],
     create: [
       commonHooks.when(
