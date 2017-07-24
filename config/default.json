@@ -3,8 +3,8 @@
   "port": 3030,
   "public": "../public/",
   "paginate": {
-    "default": 3,
-    "max": 20
+    "default": 30,
+    "max": 50
   },
   "postgres": "postgres://postgres:@localhost:5432/travelpack",
   "authentication": {

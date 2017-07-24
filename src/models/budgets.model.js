@@ -4,13 +4,13 @@ const Sequelize = require('sequelize');
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const packs = sequelizeClient.define('packs', {
-    name: {
+  const budgets = sequelizeClient.define('budgets', {
+    event: {
       type: Sequelize.STRING,
-      allowNull: true,
+      allowNull: false,
     },
-    url: {
-      type: Sequelize.STRING,
+    price: {
+      type: Sequelize.INTEGER,
       allowNull: true,
     },
   }, {
@@ -20,17 +20,11 @@ module.exports = function (app) {
       },
     },
   });
-
-  packs.associate = function (models) { // eslint-disable-line no-unused-vars
+  budgets.associate = function (models) { // eslint-disable-line no-unused-vars
     // Define associations here
-    
-    packs.hasMany(models.groups);
-    packs.hasMany(models.itineraries);
-    packs.hasMany(models.messages);
-    packs.hasMany(models.photos);
-    packs.hasMany(models.budgets);
+    budgets.belongsTo(models.packs);
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return packs;
+  return budgets;
 };
