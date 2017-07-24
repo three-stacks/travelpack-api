@@ -43,15 +43,19 @@ app.configure(rest());
 
 
 app.configure(socketio((io) => {
-  io.on('connection', function(socket) {
-    socket.on('new message', function (msg) {
-      app.service('messages').create({
-        text: msg.message,
-      });
-      socket.emit('chat message', msg);
-      socket.emit('messages::find', { status: 'read', user: 10 }, (error, data) => {
-        console.log('Found all messages', data);
-      });
+  let currRoom = 1;
+  let userId = 1;
+  io.on('connection', (socket) => {
+    socket.on('room', (room) => {
+      console.log(room, 'in room');
+      currRoom = room;
+      socket.join(room); 
+    });
+    socket.on('new message', (msg) => {
+      io.in(currRoom).emit('chat message', msg);
+      console.log(msg, 'in app.js');
+      console.log(currRoom, 'in new chat');
+      
     });
   });
 }));

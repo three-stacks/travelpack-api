@@ -3,22 +3,6 @@ const { populate } = require('feathers-hooks-common');
 // const commonHooks = require('feathers-hooks-common');
 const getUserData = require('../../hooks/getUserData.js');
 
-
-// const userPackSchema = {
-//   include: [{
-//     service: 'packs',
-//     nameAs: 'pack',
-//     parentField: 'packId',
-//     childField: 'id',
-//   },
-//   {
-//     service: 'users',
-//     nameAs: 'user',
-//     parentField: 'userId',
-//     childField: 'id',
-//   },
-// }];
-
 module.exports = {
   before: {
     all: [
