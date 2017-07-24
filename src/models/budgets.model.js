@@ -20,7 +20,6 @@ module.exports = function (app) {
       },
     },
   });
-
   budgets.associate = function (models) { // eslint-disable-line no-unused-vars
     // Define associations here
     budgets.belongsTo(models.packs);
