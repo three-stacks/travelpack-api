@@ -19,6 +19,15 @@ module.exports = function () {
     before: {
       create: [
         authentication.hooks.authenticate(config.strategies),
+        (hook) => { 
+          hook.params.payload = {
+            userId: hook.params.user.id,
+            username: hook.params.user.username,
+            avatar: hook.params.user.avatar,
+            email: hook.params.user.email,
+          };
+          // console.log(hook.params.payload, 'in auth'); 
+        },
       ],
       remove: [
         authentication.hooks.authenticate('jwt'),
