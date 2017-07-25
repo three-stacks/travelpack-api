@@ -17,11 +17,9 @@ module.exports = function (app) {
     },
   });
 
-  messages.associate = function (models) { // eslint-disable-line no-unused-vars
-    // Define associations here
+  messages.associate = function (models) { 
     messages.belongsTo(models.users);
     messages.belongsTo(models.packs);
-    // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
   return messages;

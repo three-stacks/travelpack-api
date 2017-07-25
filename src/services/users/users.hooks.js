@@ -27,22 +27,11 @@ module.exports = {
 
   after: {
     all: [
-      commonHooks.when(
-        hook => hook.params.provider,
-        commonHooks.discard('password'),
-      ),
-    ],
-    find: [
-      // commonHooks.when(
-      //   hook => console.log(hook),
-      // ),
-    ],
+      commonHooks.when(hook => hook.params.provider, commonHooks.discard('password'))],
+    find: [],
     get: [],
     create: [
-      commonHooks.when(
-        hook => console.log(hook.app.passport.createJWT),
-      ),
-    ],
+      commonHooks.when(hook => console.log(hook.app.passport.createJWT))],
     update: [],
     patch: [],
     remove: [],

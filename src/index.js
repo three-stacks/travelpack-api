@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 require('dotenv').config();
 
 const logger = require('winston');

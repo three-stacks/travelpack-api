@@ -1,4 +1,4 @@
-module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
+module.exports = function (options={}) { 
   return function (hook) {
     if (!hook.data.userId) {
       const newUser = hook.data.username;

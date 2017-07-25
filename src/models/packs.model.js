@@ -1,5 +1,3 @@
-// See http://docs.sequelizejs.com/en/latest/docs/models-definition/
-// for more of what you can do here.
 const Sequelize = require('sequelize');
 
 module.exports = function (app) {
@@ -21,14 +19,12 @@ module.exports = function (app) {
     },
   });
 
-  packs.associate = function (models) { // eslint-disable-line no-unused-vars
-    // Define associations here
+  packs.associate = function (models) { 
     packs.hasMany(models.groups);
     packs.hasMany(models.itineraries);
     packs.hasMany(models.messages);
     packs.hasMany(models.photos);
     packs.hasMany(models.budgets);
-    // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
   return packs;
