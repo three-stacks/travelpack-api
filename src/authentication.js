@@ -32,7 +32,6 @@ module.exports = function () {
       create: [
         authentication.hooks.authenticate(config.strategies),
         (hook) => { 
-          console.log(hook.app);
           hook.params.payload = {
             userId: hook.params.user.id,
             username: hook.params.user.username,
@@ -42,7 +41,6 @@ module.exports = function () {
         },
       ],
       remove: [
-        // (hook) => { console.log(hook.app.logout) },
         authentication.hooks.authenticate('jwt'),
       ],
     },
