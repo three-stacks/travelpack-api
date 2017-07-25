@@ -1,7 +1,7 @@
 // const { authenticate } = require('feathers-authentication').hooks;
 const { populate } = require('feathers-hooks-common');
 const processMessage = require('../../hooks/processMessage.js');
-const commonHooks = require('feathers-hooks-common');
+// const commonHooks = require('feathers-hooks-common');
 
 module.exports = {
   before: {
@@ -27,18 +27,13 @@ module.exports = {
             childField: 'id',
             query: {
               $select: ['username', 'avatar', 'id'],
-              $sort: { createdAt: -1 },
             },
           }],
         },
       }),
     ],
     find: [],
-    get: [
-      // commonHooks.when(
-      //   hook => console.log(hook.app.passport.createJWT),
-      // ),
-    ],
+    get: [],
     create: [],
     update: [],
     patch: [],

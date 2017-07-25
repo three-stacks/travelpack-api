@@ -1,15 +1,13 @@
 const authentication = require('feathers-authentication');
 const jwt = require('feathers-authentication-jwt');
 const local = require('feathers-authentication-local');
-const decode = require('jwt-decode')
-// Retrieve the token from wherever you've stored it.
+// const decode = require('jwt-decode');
 
 
 module.exports = function () {
   const app = this;
   const config = app.get('authentication');
 
-  // Set up authentication with the secret
   app.configure(authentication(config));
   app.configure(jwt());
   app.configure(local(config.local));

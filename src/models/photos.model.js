@@ -17,11 +17,9 @@ module.exports = function (app) {
     },
   });
 
-  photos.associate = function (models) { // eslint-disable-line no-unused-vars
-    // Define associations here
+  photos.associate = function (models) { 
     photos.belongsTo(models.users);
     photos.belongsTo(models.packs);
-    // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
   return photos;

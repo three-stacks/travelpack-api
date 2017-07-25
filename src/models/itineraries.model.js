@@ -1,5 +1,3 @@
-// See http://docs.sequelizejs.com/en/latest/docs/models-definition/
-// for more of what you can do here.
 const Sequelize = require('sequelize');
 
 module.exports = function (app) {
@@ -42,10 +40,7 @@ module.exports = function (app) {
   });
 
   itineraries.associate = function (models) { 
-    // Define associations here
     itineraries.belongsTo(models.packs);
-    // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
-
   return itineraries;
 };
