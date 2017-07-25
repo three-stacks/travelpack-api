@@ -7,6 +7,8 @@ const groups = require('./groups/groups.service.js');
 
 const budgets = require('./budgets/budgets.service.js');
 
+const fbusers = require('./fbusers/fbusers.service.js');
+
 module.exports = function () {
   const app = this; // eslint-disable-line no-unused-vars
   app.configure(messages);
@@ -16,4 +18,5 @@ module.exports = function () {
   app.configure(photos);
   app.configure(groups);
   app.configure(budgets);
+  app.configure(fbusers);
 };

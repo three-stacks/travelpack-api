@@ -2,7 +2,6 @@ const { authenticate } = require('feathers-authentication').hooks;
 const commonHooks = require('feathers-hooks-common');
 const { hashPassword } = require('feathers-authentication-local').hooks;
 const { restrictToOwner } = require('feathers-authentication-hooks');
-// const postmessage = require('../../hooks/postmessage.js');
 
 const restrict = [
   authenticate('jwt'),
@@ -30,8 +29,7 @@ module.exports = {
       commonHooks.when(hook => hook.params.provider, commonHooks.discard('password'))],
     find: [],
     get: [],
-    create: [
-      commonHooks.when(hook => console.log(hook.app.passport.createJWT))],
+    create: [],
     update: [],
     patch: [],
     remove: [],
