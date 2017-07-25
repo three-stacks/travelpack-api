@@ -19,9 +19,9 @@ module.exports = {
     get: [],
     // get: [authenticate('jwt')],
     create: [hashPassword({ passwordField: 'password' })],
-    update: [...restrict],
-    patch: [...restrict],
-    remove: [...restrict],
+    update: [],
+    patch: [],
+    remove: [],
   },
 
   after: {
