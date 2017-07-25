@@ -53,7 +53,6 @@ app.configure(socketio((io) => {
     socket.on('new message', (msg) => {
       io.in(currRoom).emit('chat message', msg);
       console.log(msg, 'in app.js');
-      console.log(currRoom, 'in new chat');
       app.service('messages').create({
         text: msg.message,
         userId: msg.userId,
