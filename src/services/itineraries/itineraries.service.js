@@ -1,4 +1,3 @@
-// Initializes the `Itineraries` service on path `/itineraries`
 const createService = require('feathers-sequelize');
 const createModel = require('../../models/itineraries.model');
 const hooks = require('./itineraries.hooks');
