@@ -5,6 +5,7 @@ module.exports = function (app) {
   const packs = sequelizeClient.define('packs', {
     name: {
       type: Sequelize.STRING,
+      unique: true,
       allowNull: true,
     },
     url: {

@@ -2,9 +2,7 @@ const authentication = require('feathers-authentication');
 const jwt = require('feathers-authentication-jwt');
 const local = require('feathers-authentication-local');
 const oauth2 = require('feathers-authentication-oauth2');
-const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
-// const decode = require('jwt-decode');
 
 
 module.exports = function () {
@@ -32,6 +30,7 @@ module.exports = function () {
       create: [
         authentication.hooks.authenticate(config.strategies),
         (hook) => { 
+          // console.log(hook.app.passport.Authenticator)
           hook.params.payload = {
             userId: hook.params.user.id,
             username: hook.params.user.username,

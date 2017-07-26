@@ -3,9 +3,7 @@
 
 module.exports = {
   before: {
-    all: [
-      // authenticate('jwt') 
-    ],
+    all: [],
     find: [],
     get: [],
     create: [],
@@ -20,7 +18,8 @@ module.exports = {
     get: [],
     create: [],
     update: [],
-    patch: [],
+    patch: [
+      (hook) => { console.log(hook.result); }],
     remove: [],
   },
 

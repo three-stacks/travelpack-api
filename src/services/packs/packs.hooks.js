@@ -4,12 +4,8 @@ const addToGroups = require('../../hooks/addToGroups.js');
 
 module.exports = {
   before: {
-    all: [
-      // authenticate('jwt') 
-    ],
-    find: [
-      // hooks.queryWithCurrentUser({ idField: 'id', as: 'sentBy' })
-    ],
+    all: [],
+    find: [],
     get: [],
     create: [],
     update: [],

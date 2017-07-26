@@ -1,13 +1,9 @@
 // const { authenticate } = require('feathers-authentication').hooks;
 const { populate } = require('feathers-hooks-common');
-const processMessage = require('../../hooks/processMessage.js');
-// const commonHooks = require('feathers-hooks-common');
 
 module.exports = {
   before: {
-    all: [
-      // authenticate('jwt') 
-    ],
+    all: [],
     find: [],
     get: [],
     create: [],
@@ -50,4 +46,3 @@ module.exports = {
     remove: [],
   },
 };
-

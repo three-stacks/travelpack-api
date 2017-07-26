@@ -11,13 +11,11 @@ module.exports = function () {
   const options = {
     name: 'itineraries',
     Model,
-    paginate
+    paginate,
   };
 
-  // Initialize our service with any options it requires
   app.use('/itineraries', createService(options));
 
-  // Get our initialized service so that we can register hooks and filters
   const service = app.service('itineraries');
 
   service.hooks(hooks);

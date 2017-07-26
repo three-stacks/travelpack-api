@@ -1,5 +1,3 @@
-// See http://docs.sequelizejs.com/en/latest/docs/models-definition/
-// for more of what you can do here.
 const Sequelize = require('sequelize');
 
 module.exports = function (app) {
@@ -7,7 +5,7 @@ module.exports = function (app) {
   const fbusers = sequelizeClient.define('fbusers', {
     text: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     }
   }, {
     hooks: {
@@ -17,9 +15,8 @@ module.exports = function (app) {
     }
   });
 
-  fbusers.associate = function (models) { // eslint-disable-line no-unused-vars
-    // Define associations here
-    // See http://docs.sequelizejs.com/en/latest/docs/associations/
+  fbusers.associate = function (models) { 
+
   };
 
   return fbusers;

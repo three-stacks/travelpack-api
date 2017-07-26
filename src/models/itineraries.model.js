@@ -5,7 +5,7 @@ module.exports = function (app) {
   const itineraries = sequelizeClient.define('itineraries', {
     name: {
       type: Sequelize.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     img: {
       type: Sequelize.STRING,
@@ -13,6 +13,10 @@ module.exports = function (app) {
     },
     link: {
       type: Sequelize.STRING,
+      allowNull: true,
+    },
+    rating: {
+      type: Sequelize.INTEGER,
       allowNull: true,
     },
     date: {

@@ -33,14 +33,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const publicPath = app.get('public');
 app.use(favicon(path.join(publicPath, 'favicon.ico')));
-// Host the public folder
-app.use('/', feathers.static(publicPath));
 
-// Set up Plugins and providers
+app.use('/', feathers.static(publicPath));
 app.configure(hooks());
 app.configure(sequelize);
 app.configure(rest());
-
 
 app.configure(socketio((io) => {
   let currRoom = 1;
@@ -61,7 +58,6 @@ app.configure(socketio((io) => {
     });
   });
 }));
-
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);

@@ -9,7 +9,7 @@ module.exports = function (app) {
     },
     price: {
       type: Sequelize.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
   }, {
     hooks: {
