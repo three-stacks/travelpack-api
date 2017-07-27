@@ -65,16 +65,13 @@ const yelp = new Yelp({
   app_secret: process.env.YELP_CLIENT_SECRET,
 });
 
-// const sendYelp = function (data) {
-//   console.log('I GOT DATA', data);
-//   // app.get('/yelp', (req, res) => {
-// };
-
 app.post('/yelp', (req, res) => {
+  console.log(req.body, 'hit')
   yelp.search({ term: req.body.term, location: req.body.location, limit: 10 })
     .then(function(data) {
-      // sendYelp(data);
-      res.write(JSON.stringify(data));
+      res.writeHead(200);
+      res.write((data.business));
+      res.end()
     })
     .catch(function(err) {
       console.error(err, 'err');
