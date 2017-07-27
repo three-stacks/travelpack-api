@@ -10,7 +10,7 @@ const budgets = require('./budgets/budgets.service.js');
 const fbusers = require('./fbusers/fbusers.service.js');
 
 module.exports = function () {
-  const app = this; // eslint-disable-line no-unused-vars
+  const app = this; 
   app.configure(messages);
   app.configure(users);
   app.configure(packs);

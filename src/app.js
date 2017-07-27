@@ -67,17 +67,18 @@ const yelp = new Yelp({
 
 app.post('/yelp', (req, res) => {
   console.log(req.body, 'hit')
-  yelp.search({ term: req.body.term, location: req.body.location, limit: 10 })
-    .then(function(data) {
+  yelp.search({ term: req.body.term, location: req.body.location, limit: 5 })
+    .then((response) => {
+      const prettyJson = JSON.stringify(response);
+      console.log('received yelp results');
       res.writeHead(200);
-      res.write((data.business));
+      res.write(prettyJson);
       res.end()
     })
-    .catch(function(err) {
+    .catch((err) => {
       console.error(err, 'err');
     });
 });
-
 
 app.configure(middleware);
 app.configure(authentication);
