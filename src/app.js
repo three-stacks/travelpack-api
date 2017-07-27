@@ -4,6 +4,7 @@ const compress = require('compression');
 const cors = require('cors');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
+const Yelp = require('yelp-api-v3');
 
 const feathers = require('feathers');
 const configuration = require('feathers-configuration');
@@ -33,14 +34,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const publicPath = app.get('public');
 app.use(favicon(path.join(publicPath, 'favicon.ico')));
-// Host the public folder
-app.use('/', feathers.static(publicPath));
 
-// Set up Plugins and providers
+app.use('/', feathers.static(publicPath));
 app.configure(hooks());
 app.configure(sequelize);
 app.configure(rest());
-
 
 app.configure(socketio((io) => {
   let currRoom = 1;
@@ -62,13 +60,29 @@ app.configure(socketio((io) => {
   });
 }));
 
+const yelp = new Yelp({
+  app_id: process.env.YELP_CLIENT_ID,
+  app_secret: process.env.YELP_CLIENT_SECRET,
+});
 
-// Configure other middleware (see `middleware/index.js`)
+app.post('/yelp', (req, res) => {
+  console.log(req.body, 'hit')
+  yelp.search({ term: req.body.term, location: req.body.location, limit: 10 })
+    .then(function(data) {
+      res.writeHead(200);
+      res.write((data.business));
+      res.end()
+    })
+    .catch(function(err) {
+      console.error(err, 'err');
+    });
+});
+
+
 app.configure(middleware);
 app.configure(authentication);
-// Set up our services (see `services/index.js`)
+
 app.configure(services);
-// Configure a middleware for 404s and the error handler
 app.use(notFound());
 app.use(handler());
 

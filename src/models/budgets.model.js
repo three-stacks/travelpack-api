@@ -9,7 +9,7 @@ module.exports = function (app) {
     },
     price: {
       type: Sequelize.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
   }, {
     hooks: {
@@ -18,10 +18,8 @@ module.exports = function (app) {
       },
     },
   });
-
   budgets.associate = function (models) { 
     budgets.belongsTo(models.packs);
   };
-
   return budgets;
 };

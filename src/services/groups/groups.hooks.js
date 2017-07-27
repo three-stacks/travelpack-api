@@ -1,13 +1,11 @@
 // const { authenticate } = require('feathers-authentication').hooks;
-const { populate } = require('feathers-hooks-common');
 // const commonHooks = require('feathers-hooks-common');
+const { populate } = require('feathers-hooks-common');
 const getUserData = require('../../hooks/getUserData.js');
 
 module.exports = {
   before: {
-    all: [
-      // authenticate('jwt') 
-    ],
+    all: [],
     find: [],
     get: [],
     create: [getUserData()],
