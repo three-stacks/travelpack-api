@@ -18,10 +18,8 @@ module.exports = function (app) {
       },
     },
   });
-
   budgets.associate = function (models) { 
     budgets.belongsTo(models.packs);
   };
-
   return budgets;
 };

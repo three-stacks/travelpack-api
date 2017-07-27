@@ -40,7 +40,7 @@ module.exports = function () {
         },
       ],
       remove: [
-        authentication.hooks.authenticate('jwt'),
+        // authentication.hooks.authenticate('jwt'),
       ],
     },
   });
