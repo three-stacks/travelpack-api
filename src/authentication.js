@@ -30,7 +30,6 @@ module.exports = function () {
       create: [
         authentication.hooks.authenticate(config.strategies),
         (hook) => { 
-          // console.log(hook.app.passport.Authenticator)
           hook.params.payload = {
             userId: hook.params.user.id,
             username: hook.params.user.username,

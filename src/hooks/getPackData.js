@@ -1,4 +1,4 @@
-module.exports = function (options = {}) { 
+module.exports = function () { 
   return function (hook) {
     const packID = hook.result.data[0].packId;
     return hook.app.service('packs').find({ query: { id: packID } }).then((packData) => {

@@ -18,8 +18,7 @@ module.exports = {
     get: [],
     create: [],
     update: [],
-    patch: [
-      (hook) => { console.log(hook.result); }],
+    patch: [],
     remove: [],
   },
 
