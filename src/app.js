@@ -69,17 +69,8 @@ app.configure(socketio((io) => {
           lat: loc[key].lat,
           long: loc[key].lng,
         }).then((user) => {
-          console.log(user, 'in user data');
+          console.log('user location stored in db');
         })
-      //   return app.service('users').get(loc.djd.userId).then((user) => {
-      //     user.lat = loc[key].lat;
-      //     user.long =loc[key].lng;
-      //     // return hook;
-      //     console.log(hook, 'in user');
-      //     console.log(user);
-      //     // return user;
-      //     // Resolve.promise(user)
-      // }); 
       }
     });
   });
