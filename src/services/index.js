@@ -4,7 +4,6 @@ const packs = require('./packs/packs.service.js');
 const itineraries = require('./itineraries/itineraries.service.js');
 const photos = require('./photos/photos.service.js');
 const groups = require('./groups/groups.service.js');
-
 const budgets = require('./budgets/budgets.service.js');
 
 const fbusers = require('./fbusers/fbusers.service.js');
@@ -19,5 +18,4 @@ module.exports = function () {
   app.configure(groups);
   app.configure(budgets);
   app.configure(fbusers);
-
 };
