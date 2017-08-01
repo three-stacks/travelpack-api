@@ -1,5 +1,3 @@
-// const { authenticate } = require('feathers-authentication').hooks;
-// const hooks = require('feathers-authentication-hooks');
 const addToGroups = require('../../hooks/addToGroups.js');
 
 module.exports = {
