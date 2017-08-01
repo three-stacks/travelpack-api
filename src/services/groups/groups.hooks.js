@@ -34,9 +34,6 @@ module.exports = {
             nameAs: 'user',
             parentField: 'userId',
             childField: 'id',
-            query: {
-              $select: ['username', 'avatar', 'id'],
-            },
           }],
         },
       }),
