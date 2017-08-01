@@ -1,5 +1,4 @@
 const path = require('path');
-const favicon = require('serve-favicon');
 const compress = require('compression');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -33,7 +32,6 @@ app.use(compress());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const publicPath = app.get('public');
-app.use(favicon(path.join(publicPath, 'favicon.ico')));
 
 app.use('/', feathers.static(publicPath));
 app.configure(hooks());
