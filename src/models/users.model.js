@@ -22,11 +22,11 @@ module.exports = function (app) {
       allowNull: true,
     },
     lat: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DECIMAL,
       allowNull: true,
     },
     long: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DECIMAL,
       allowNull: true,
     },
   }, {
@@ -42,6 +42,7 @@ module.exports = function (app) {
     users.hasMany(models.itineraries);
     users.hasMany(models.messages);
     users.hasMany(models.photos);
+    users.hasMany(models.maps);
   };
 
   return users;

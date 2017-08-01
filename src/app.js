@@ -51,11 +51,36 @@ app.configure(socketio((io) => {
     socket.on('new message', (msg) => {
       io.in(currRoom).emit('chat message', msg);
       console.log(msg, 'in app.js');
+      console.log(currRoom, 'room number');
       app.service('messages').create({
         text: msg.message,
         userId: msg.userId,
-        packId: currRoom,
+        packId: msg.packId,
       });
+    });
+    socket.on('geolocation', (loc) => {
+      console.log(loc, 'geo location');
+      console.log(currRoom, 'in same room of location');
+      // socket.to(currRoom).emit('pack locations', loc);
+      io.in(currRoom).emit('pack locations', loc);
+      for (var key in loc) {
+        console.log(loc[key], 'userId');
+        app.service('users').patch(loc[key].userId, {
+          lat: loc[key].lat,
+          long: loc[key].lng,
+        }).then((user) => {
+          console.log(user, 'in user data');
+        })
+      //   return app.service('users').get(loc.djd.userId).then((user) => {
+      //     user.lat = loc[key].lat;
+      //     user.long =loc[key].lng;
+      //     // return hook;
+      //     console.log(hook, 'in user');
+      //     console.log(user);
+      //     // return user;
+      //     // Resolve.promise(user)
+      // }); 
+      }
     });
   });
 }));

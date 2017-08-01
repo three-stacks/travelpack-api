@@ -9,8 +9,10 @@ const budgets = require('./budgets/budgets.service.js');
 
 const fbusers = require('./fbusers/fbusers.service.js');
 
+const maps = require('./maps/maps.service.js');
+
 module.exports = function () {
-  const app = this; 
+  const app = this;
   app.configure(messages);
   app.configure(users);
   app.configure(packs);
@@ -19,4 +21,5 @@ module.exports = function () {
   app.configure(groups);
   app.configure(budgets);
   app.configure(fbusers);
+  app.configure(maps);
 };
