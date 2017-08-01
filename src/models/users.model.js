@@ -42,7 +42,7 @@ module.exports = function (app) {
     users.hasMany(models.itineraries);
     users.hasMany(models.messages);
     users.hasMany(models.photos);
-    users.hasMany(models.maps);
+    // users.hasMany(models.maps);
   };
 
   return users;
