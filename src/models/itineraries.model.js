@@ -20,7 +20,7 @@ module.exports = function (app) {
       allowNull: true,
     },
     date: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       allowNull: true,
     },
     time: {
